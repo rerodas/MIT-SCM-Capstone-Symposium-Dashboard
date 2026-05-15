@@ -335,12 +335,35 @@ with st.sidebar:
             st.image(Image.open(LOGO_PATH), use_container_width=True)
         except Exception:
             pass
+
+    st.markdown("## Hidden Value of E2E Visibility")
+    st.markdown(
+        """
+        MASc Supply Chain Management<br>
+        Spring 2026 Capstone
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.markdown(
+        """
+        <div style="line-height: 1.3; font-size: 14px; margin-top: 0.8rem;">
+            <b>Students:</b> J. Cermeño, R. Rodas<br>
+            <b>Advisors:</b> Dr. J. Macias, Dr. M. Saenz
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.markdown("---")
+
     st.markdown("### About this study")
     st.markdown(
         """
-        We quantify the **Value of Information** from mapping supplier
-        relationships beyond Tier‑1 across four real supply chains, using a
-        Bayesian Noisy‑OR cascade and Monte Carlo simulation.
+        This study measures the value of supply chain visibility.
+        By modeling how disruptions cascade through multi‑tier supplier
+        networks, we show how much firms can save by mapping beyond
+        their direct suppliers.
 
         **Visibility levels**
         - **S1** — Tier‑1 only
@@ -348,6 +371,7 @@ with st.sidebar:
         - **S3** — Tier‑1, 2 & 3
         """
     )
+
     st.markdown("---")
     st.caption("MIT Digital Supply Chain Transformation Lab · 2026")
 
@@ -552,6 +576,18 @@ if not bbn_df.empty:
                 full_tbl.to_html(index=False, classes="table", border=0, escape=False)
             ),
             unsafe_allow_html=True,
+        )
+
+    with st.expander("Why looking deeper changes the answer"):
+        st.markdown(
+            """
+            - **Tier‑1 suppliers don't fail in isolation** — they depend on Tier‑2,
+              which depends on Tier‑3.
+            - Each invisible upstream link is an **independent failure mode** the
+              firm wasn't accounting for.
+            - Small per‑link failure probabilities **compound multiplicatively**
+              when stacked across tiers.
+            """
         )
 else:
     st.info("No BBN probability data found for this company.")
