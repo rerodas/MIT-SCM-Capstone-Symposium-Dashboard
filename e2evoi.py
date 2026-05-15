@@ -1,6 +1,6 @@
 """
-Hidden Value in E2E Visibility — Capstone Results Dashboard
-MIT SCM 2026 | J. Cermeño, R. Rodas
+Hidden Value of E2E Visibility — Capstone Results Dashboard
+MIT SCM 2026 | Cermeño & Rodas
 
 Mobile-responsive Streamlit app for symposium audience access via QR code.
 Switches between four focal companies and shows three views per company:
@@ -52,7 +52,7 @@ FAVICON_PATH = BASE_DIR / "faviconV2.png"
 _page_icon = str(FAVICON_PATH) if FAVICON_PATH.exists() else "🌐"
 
 st.set_page_config(
-    page_title="Hidden Value in E2E Visibility",
+    page_title="Hidden Value of E2E Visibility",
     page_icon=_page_icon,
     layout="wide",
     initial_sidebar_state="collapsed",  # collapsed by default for mobile
@@ -188,6 +188,17 @@ st.markdown(
       #MainMenu { visibility: hidden; }
       footer { visibility: hidden; }
 
+      /* Ensure sidebar content (especially the MIT logo) isn't flush against the screen edge */
+      section[data-testid="stSidebar"] > div:first-child {
+          padding-left: 1rem !important;
+          padding-right: 1rem !important;
+      }
+      section[data-testid="stSidebar"] img {
+          border-radius: 0 !important;
+          object-fit: contain !important;
+          max-width: 100% !important;
+      }
+
       /* Tables: full width, readable on mobile */
       table { width: 100%; font-size: 0.85rem; border-collapse: collapse; }
       th { background: #f0f3f8 !important; color: #1E5DBE !important;
@@ -297,7 +308,7 @@ st.markdown(
     """
     <div class="app-header">
         <h1>Hidden Value in End-to-End Supply Chain Visibility</h1>
-        <p>MIT SCM 2026 Capstone | J. Cermeño, R. Rodas | Advisors: Dr. M. Saenz, Dr. J. Macias</p>
+        <p>MIT SCM 2026 Capstone | Students: J. Cermeño, R. Rodas | Advisors: Dr. M. Saenz, Dr. J. Macias</p>
     </div>
     """,
     unsafe_allow_html=True,
@@ -336,7 +347,7 @@ with st.sidebar:
         except Exception:
             pass
 
-    st.markdown("## Hidden Value in E2E Visibility")
+    st.markdown("## Hidden Value of E2E Visibility")
     st.markdown(
         """
         MASc Supply Chain Management<br>
@@ -381,8 +392,8 @@ with st.sidebar:
         """
         This study measures the value of supply chain visibility.
         By modeling how disruptions cascade through multi‑tier supplier
-        networks, we show how much firms can save by mapping beyond
-        their direct suppliers.
+        networks, we show how much firms can save by mapping their supply
+        chain network beyond their direct suppliers.
 
         **Visibility levels**
         - **S1** — Tier‑1 only
@@ -521,12 +532,25 @@ if not bbn_df.empty:
     fig_risk.update_layout(
         height=320,
         margin=dict(l=10, r=10, t=20, b=10),
-        yaxis=dict(tickformat=".0%", range=[0, max(vals) * 1.25], title=None),
-        xaxis=dict(title=None),
+        yaxis=dict(tickformat=".0%", range=[0, max(vals) * 1.25], title=None, fixedrange=True),
+        xaxis=dict(title=None, fixedrange=True),
         plot_bgcolor="white",
         showlegend=False,
+        dragmode=False,
     )
-    st.plotly_chart(fig_risk, use_container_width=True, config={"displayModeBar": False})
+    st.plotly_chart(
+        fig_risk,
+        use_container_width=True,
+        config={
+            "displayModeBar": False,
+            "staticPlot": False,        # keep hover tooltips
+            "scrollZoom": False,
+            "doubleClick": False,
+            "showAxisDragHandles": False,
+            "showAxisRangeEntryBoxes": False,
+            "editable": False,
+        },
+    )
 
     # --- BBN supplier-level table ---
     st.markdown(
@@ -683,13 +707,27 @@ if not voi_df_all.empty:
     fig_voi.update_layout(
         height=380,
         margin=dict(l=10, r=10, t=20, b=10),
-        yaxis=dict(tickformat=".0%", title="Cost Reduction (VOI %)", rangemode="tozero"),
-        xaxis=dict(title="Safety Stock Level"),
+        yaxis=dict(tickformat=".0%", title="Cost Reduction (VOI %)", rangemode="tozero", fixedrange=True),
+        xaxis=dict(title="Safety Stock Level", fixedrange=True),
         plot_bgcolor="white",
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0),
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0,
+                    itemclick=False, itemdoubleclick=False),
         hovermode="x unified",
+        dragmode=False,
     )
-    st.plotly_chart(fig_voi, use_container_width=True, config={"displayModeBar": False})
+    st.plotly_chart(
+        fig_voi,
+        use_container_width=True,
+        config={
+            "displayModeBar": False,
+            "staticPlot": False,        # keep hover tooltips
+            "scrollZoom": False,
+            "doubleClick": False,
+            "showAxisDragHandles": False,
+            "showAxisRangeEntryBoxes": False,
+            "editable": False,
+        },
+    )
 
     # Peak VOI summary — both % and $
     peak_s2_pct = agg["voi_s2_pct"].max()
@@ -759,7 +797,7 @@ else:
 # SECTION 3 — NETWORK TOPOLOGY (D3 force-directed)
 # ===========================================================================
 st.markdown(
-    f'<div class="section-title">Supply Chain Network Topology — {short_label(focal)}</div>'
+    f'<div class="section-title">Supply Chain Topology — {short_label(focal)}</div>'
     f'<div class="section-sub">Multi‑tier supplier network. Tap nodes to highlight '
     f'connections; pinch/scroll to zoom.</div>',
     unsafe_allow_html=True,
