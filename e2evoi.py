@@ -379,7 +379,7 @@ with st.sidebar:
     st.markdown("### About this study")
     st.markdown(
         """
-        This study puts a dollar figure on supply chain visibility.
+        This study measures the value of supply chain visibility.
         By modeling how disruptions cascade through multi‑tier supplier
         networks, we show how much firms can save by mapping beyond
         their direct suppliers.
