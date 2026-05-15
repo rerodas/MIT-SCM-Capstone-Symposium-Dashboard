@@ -974,8 +974,6 @@ else:
 st.markdown(
     """
     <div style="text-align:center; color:#888; font-size:0.75rem; margin-top:1rem;">
-        Bayesian Noisy‑OR simulation · 10,000 Monte Carlo trials · Industry data
-        sourced from focal companies' 10‑K filings<br>
         © 2026 MIT Digital Supply Chain Transformation Lab
     </div>
     """,
