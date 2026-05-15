@@ -1,6 +1,6 @@
 """
-Hidden Value of E2E Visibility — Capstone Results Dashboard
-MIT SCM 2026 | Cermeño & Rodas
+Hidden Value in E2E Visibility — Capstone Results Dashboard
+MIT SCM 2026 | J. Cermeño, R. Rodas
 
 Mobile-responsive Streamlit app for symposium audience access via QR code.
 Switches between four focal companies and shows three views per company:
@@ -52,7 +52,7 @@ FAVICON_PATH = BASE_DIR / "faviconV2.png"
 _page_icon = str(FAVICON_PATH) if FAVICON_PATH.exists() else "🌐"
 
 st.set_page_config(
-    page_title="Hidden Value of E2E Visibility",
+    page_title="Hidden Value in E2E Visibility",
     page_icon=_page_icon,
     layout="wide",
     initial_sidebar_state="collapsed",  # collapsed by default for mobile
@@ -297,7 +297,7 @@ st.markdown(
     """
     <div class="app-header">
         <h1>Hidden Value in End-to-End Supply Chain Visibility</h1>
-        <p>MIT SCM 2026 Capstone · Cermeño &amp; Rodas · Advisors: Dr. Saenz, Dr. Macias</p>
+        <p>MIT SCM 2026 Capstone | J. Cermeño, R. Rodas | Advisors: Dr. M. Saenz, Dr. J. Macias</p>
     </div>
     """,
     unsafe_allow_html=True,
@@ -336,7 +336,7 @@ with st.sidebar:
         except Exception:
             pass
 
-    st.markdown("## Hidden Value of E2E Visibility")
+    st.markdown("## Hidden Value in E2E Visibility")
     st.markdown(
         """
         MASc Supply Chain Management<br>
