@@ -1,0 +1,9 @@
+supply_chain_full.db
+supply_chain_FULL_backup.db
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.venv/
+venv/
+*.log
