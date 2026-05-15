@@ -1,6 +1,6 @@
 """
-Hidden Value in E2E Visibility — Capstone Results Dashboard
-MIT SCM 2026 | J. Cermeño,  R. Rodas
+Hidden Value of E2E Visibility — Capstone Results Dashboard
+MIT SCM 2026 | Cermeño & Rodas
 
 Mobile-responsive Streamlit app for symposium audience access via QR code.
 Switches between four focal companies and shows three views per company:
@@ -76,7 +76,7 @@ st.markdown(
 
       /* Header styling */
       .app-header {
-          background: linear-gradient(135deg, #0B3D91 0%, #1E5DBE 100%);
+          background: linear-gradient(135deg, #1E5DBE 0%, #3B7DD8 100%);
           color: white;
           padding: 1.2rem 1.4rem;
           border-radius: 12px;
@@ -99,7 +99,7 @@ st.markdown(
       .section-title {
           font-size: 1.05rem;
           font-weight: 700;
-          color: #0B3D91;
+          color: #1E5DBE;
           margin: 1.5rem 0 0.4rem 0;
       }
       .section-sub {
@@ -120,7 +120,7 @@ st.markdown(
           background: #f4f7fb;
           border-radius: 8px;
           padding: 0.7rem 0.8rem;
-          border-left: 4px solid #0B3D91;
+          border-left: 4px solid #1E5DBE;
       }
       .kpi-label {
           font-size: 0.72rem;
@@ -131,7 +131,7 @@ st.markdown(
       .kpi-value {
           font-size: 1.25rem;
           font-weight: 700;
-          color: #0B3D91;
+          color: #1E5DBE;
           line-height: 1.2;
       }
       .kpi-sub {
@@ -160,9 +160,9 @@ st.markdown(
       }
       div[role="radiogroup"] > label[data-checked="true"],
       div[role="radiogroup"] > label:has(input:checked) {
-          background: #0B3D91;
+          background: #1E5DBE;
           color: white;
-          border-color: #0B3D91;
+          border-color: #1E5DBE;
       }
       /* Force white text on the label content (Streamlit wraps it in a child element) */
       div[role="radiogroup"] > label[data-checked="true"] *,
@@ -190,7 +190,7 @@ st.markdown(
 
       /* Tables: full width, readable on mobile */
       table { width: 100%; font-size: 0.85rem; border-collapse: collapse; }
-      th { background: #f0f3f8 !important; color: #0B3D91 !important;
+      th { background: #f0f3f8 !important; color: #1E5DBE !important;
            padding: 8px 10px !important; text-align: left; font-weight: 600;
            border-bottom: 2px solid #d6dde6; }
       td { padding: 7px 10px !important; border-bottom: 1px solid #eef0f3; }
@@ -200,10 +200,10 @@ st.markdown(
       tbody tr.summary-row {
           background: #e8efff !important;
           font-weight: 700;
-          border-top: 2px solid #0B3D91;
-          border-bottom: 2px solid #0B3D91;
+          border-top: 2px solid #1E5DBE;
+          border-bottom: 2px solid #1E5DBE;
       }
-      tbody tr.summary-row td { color: #0B3D91; }
+      tbody tr.summary-row td { color: #1E5DBE; }
       @media (max-width: 640px) {
           table { font-size: 0.78rem; }
           th, td { padding: 6px 6px !important; }
@@ -297,7 +297,7 @@ st.markdown(
     """
     <div class="app-header">
         <h1>Hidden Value in End-to-End Supply Chain Visibility</h1>
-        <p>MIT SCM 2026 Capstone | Students: J. Cermeño, R. Rodas | Advisors: Dr. M. Saenz, Dr. J. Macias</p>
+        <p>MIT SCM 2026 Capstone · Cermeño &amp; Rodas · Advisors: Dr. Saenz, Dr. Macias</p>
     </div>
     """,
     unsafe_allow_html=True,
@@ -347,8 +347,27 @@ with st.sidebar:
 
     st.markdown(
         """
-        <div style="line-height: 1.3; font-size: 14px; margin-top: 0.8rem;">
-            <b>Students:</b> J. Cermeño, R. Rodas<br>
+        <style>
+          .li-icon {
+              display: inline-block;
+              vertical-align: middle;
+              margin-left: 3px;
+              opacity: 0.75;
+              transition: opacity 0.15s;
+          }
+          .li-icon:hover { opacity: 1; }
+        </style>
+        <div style="line-height: 1.4; font-size: 14px; margin-top: 0.8rem;">
+            <b>Students:</b>
+            J. Cermeño
+            <a href="https://www.linkedin.com/in/juan-e-cerme%C3%B1o-blondet/" target="_blank" rel="noopener" class="li-icon" title="J. Cermeño on LinkedIn">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A66C2" xmlns="http://www.w3.org/2000/svg"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            </a>,
+            R. Rodas
+            <a href="https://www.linkedin.com/in/rafaelrodas/" target="_blank" rel="noopener" class="li-icon" title="R. Rodas on LinkedIn">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="#0A66C2" xmlns="http://www.w3.org/2000/svg"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            </a>
+            <br>
             <b>Advisors:</b> Dr. J. Macias, Dr. M. Saenz
         </div>
         """,
@@ -360,7 +379,7 @@ with st.sidebar:
     st.markdown("### About this study")
     st.markdown(
         """
-        This study measures the value of supply chain visibility.
+        This study puts a dollar figure on supply chain visibility.
         By modeling how disruptions cascade through multi‑tier supplier
         networks, we show how much firms can save by mapping beyond
         their direct suppliers.
@@ -487,7 +506,7 @@ if not bbn_df.empty:
     # Bar chart — average disruption probability by visibility level
     levels = ["L1 (Tier‑1 Only)", "L2 (Tier‑1 & 2)", "L3 (Tier‑1, 2 & 3)"]
     vals = [p1_avg, p2_avg, p3_avg]
-    colors = ["#c9d6ea", "#5d87c4", "#0B3D91"]
+    colors = ["#c9d6ea", "#5d87c4", "#1E5DBE"]
 
     fig_risk = go.Figure(
         go.Bar(
@@ -511,7 +530,7 @@ if not bbn_df.empty:
 
     # --- BBN supplier-level table ---
     st.markdown(
-        '<div style="font-size:0.9rem; font-weight:600; color:#0B3D91; '
+        '<div style="font-size:0.9rem; font-weight:600; color:#1E5DBE; '
         'margin:0.8rem 0 0.3rem 0;">BBN Probability Matrix — Tier‑1 Suppliers</div>',
         unsafe_allow_html=True,
     )
@@ -639,7 +658,7 @@ if not voi_df_all.empty:
             y=agg["voi_s2_pct"],
             mode="lines+markers+text",
             name="S1 → S2 (add Tier‑2)",
-            line=dict(color="#0B3D91", width=3),
+            line=dict(color="#1E5DBE", width=3),
             marker=dict(size=10),
             text=[f"{v:.1%}" for v in agg["voi_s2_pct"]],
             textposition="top center",
@@ -871,7 +890,7 @@ HTML_TEMPLATE = """
         .attr("stroke", l => {
           const sId = l.source.id || l.source;
           const tId = l.target.id || l.target;
-          return (sId === d.id || tId === d.id) ? "#0B3D91" : "#ddd";
+          return (sId === d.id || tId === d.id) ? "#1E5DBE" : "#ddd";
         })
         .attr("stroke-width", l => {
           const sId = l.source.id || l.source;
