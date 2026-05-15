@@ -797,7 +797,7 @@ else:
 # SECTION 3 — NETWORK TOPOLOGY (D3 force-directed)
 # ===========================================================================
 st.markdown(
-    f'<div class="section-title">Supply Chain Topology — {short_label(focal)}</div>'
+    f'<div class="section-title">Supply Chain Network Topology — {short_label(focal)}</div>'
     f'<div class="section-sub">Multi‑tier supplier network. Tap nodes to highlight '
     f'connections; pinch/scroll to zoom.</div>',
     unsafe_allow_html=True,
